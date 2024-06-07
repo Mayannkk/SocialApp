@@ -2,9 +2,10 @@
   "name": "social-app",
   "version": "1.0.0",
   "description": "Developing backend of youtube and twitter with help of hitesh chaudhary ",
+  "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon src/index.js"
   },
   "keywords": [
     "javascript",
@@ -12,5 +13,8 @@
     "chai"
   ],
   "author": "Mayank Pal",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.3"
+  }
 }
