@@ -1,12 +1,26 @@
-// require("dotenv").config({ path: "./env" });
+// require("dotenv").config({ path: "./env" }); if in package.json our type:"commonjs"
 import dotenv from "dotenv";
 import connectDB from "./db/index.js";
 
 dotenv.config({
   path: "./env",
 });
+const runningPort = process.env.PORT || 8000;
+connectDB()
+  .then(() => {
+    app.on("error", (error) => {
+      console.log("SERVER ERROR: ", error);
+      throw error;
+    });
 
-connectDB();
+    app.listen(runningPort || 8000, () => {
+      console.log(`Server is running @ http://localhost:${runningPort}`);
+    });
+  })
+  .catch((error) => {
+    console.log("MongoDB Connection Failed !!!", error);
+    throw error;
+  });
 /*
 This is the first(basic) method to connect db.
 
